@@ -195,8 +195,8 @@ def multitaper_spectrogram(data, fs, frequency_range=None, time_bandwidth=5, num
         # ax.set_xlabel("Time (HH:MM:SS)")
         ax.set_xlabel("")
         ax.set_ylabel("")
-        ax.set_xticks([])
-        ax.set_yticks([])
+        # ax.set_xticks([])
+        # ax.set_yticks([])
         im.set_cmap(plt.cm.get_cmap('cet_rainbow4'))
         ax.invert_yaxis()
 
