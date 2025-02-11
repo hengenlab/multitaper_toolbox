@@ -183,13 +183,20 @@ def multitaper_spectrogram(data, fs, frequency_range=None, time_bandwidth=5, num
 
         # Plot spectrogram
         if ax is None:
-            fig, ax = plt.subplots()
+            fig, ax = plt.subplots(figsize=(16, 2))
         else:
             fig = ax.get_figure()
         im = ax.imshow(spect_data, extent=extent, aspect='auto')
-        fig.colorbar(im, ax=ax, label='PSD (dB)', shrink=0.8)
-        ax.set_xlabel("Time (HH:MM:SS)")
-        ax.set_ylabel("Frequency (Hz)")
+        cbar = fig.colorbar(im, ax=ax, label='PSD (dB)', shrink=0.8)
+        # If you want to remove the colorbar later
+        cbar.remove()
+
+        # ax.set_xlabel("Time (HH:MM:SS)")
+        # ax.set_xlabel("Time (HH:MM:SS)")
+        ax.set_xlabel("")
+        ax.set_ylabel("")
+        ax.set_xticks([])
+        ax.set_yticks([])
         im.set_cmap(plt.cm.get_cmap('cet_rainbow4'))
         ax.invert_yaxis()
 
@@ -198,7 +205,7 @@ def multitaper_spectrogram(data, fs, frequency_range=None, time_bandwidth=5, num
             clim = np.percentile(spect_data, [5, 98])  # from 5th percentile to 98th
             im.set_clim(clim)  # actually change colorbar scale
 
-        fig.show()
+        # fig.show()
         if return_fig:
             return mt_spectrogram, stimes, sfreqs, (fig, ax)
 
