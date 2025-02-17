@@ -201,7 +201,7 @@ def multitaper_spectrogram(data, fs, frequency_range=None, time_bandwidth=5, num
         # ax.set_yticks(np.linspace(extent[2], extent[3], num=5))
         # ax.set_yticks(np.arange(0, 20, 4))
         # ax.set_yticks([0, 4, 8, 12, 16, 20])
-        ax.set_yscale('log')
+        # ax.set_yscale('log')
 
         im.set_cmap(plt.cm.get_cmap('cet_rainbow4'))
         ax.invert_yaxis()
